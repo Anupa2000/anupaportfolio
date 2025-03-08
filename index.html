@@ -1,96 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anupa Pahasara Wimalasiri</title>
-
-<!--Link CSS -->
-<link rel="stylesheet" href="styles.css">
-
-<script defer src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="description" content="A modern beauty salon website" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dilushi Salon</title>
+  <!-- Example of using Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Replace “Roboto” with a font you prefer -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <!-- HEADER / NAVBAR -->
   <header>
-    <div class="navbar">
-      
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#education">Education Qualifications</a></li>
-        <li><a href="#project">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact Me</a></li>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="#">
+          <!-- Replace with your salon logo or text -->
+          <img src="logo.png" alt="Salon Logo" />
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section id="home">
-    <div class="hero">
-      <div class="hero-text">
-        <h2>Hi, I'm Anupa Pahasara Wimalasiri</h2>
-        <p>"Crafting innovation, one pixel at a time."</p>
-        <a href="#project" class="btn">View My Work</a>
+  <!-- FULL-SCREEN HERO SECTION -->
+  <section id="hero" class="hero-section">
+    <div class="hero-content">
+      <h1>Welcome to Dilushi Salon</h1>
+      <p>Experience Radiance & Renewal</p>
+      <a href="#services" class="btn btn-primary">View Services</a>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <!-- Example of one service card -->
+  <section id="services">
+        <h2>Our Services</h2>
+  
+    <!-- Hair Styling Card -->
+    <div class="card" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <!-- Front Face -->
+        <div class="card-front">
+          <h3>Hair Styling</h3>
+        </div>
+        <!-- Back Face -->
+        <div class="card-back">
+          <p>From chic cuts to trendy coloring and styling—give your hair a refreshing makeover.</p>
+        </div>
       </div>
-      <div class="hero-image">
-        <!-- Use a relative path to your image file -->
-        <img src="\Asset\fd7d354f-3ea0-4738-835c-15f505baeafc_removalai_preview (1).png" alt="Hero Image">
+    </div>
+  
+    <!-- Makeup Card -->
+    <div class="card" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-front">
+          <h3>Makeup</h3>
+        </div>
+        <div class="card-back">
+          <p>Professional makeup for weddings, parties, and other special events to give you a flawless look.</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Spa Treatments Card -->
+    <div class="card" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-front">
+          <h3>Spa Treatments</h3>
+        </div>
+        <div class="card-back">
+          <p>Relax and rejuvenate with our range of facials, massages, and skin therapies.</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Nail Services Card -->
+    <div class="card" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-front">
+          <h3>Nail Services</h3>
+        </div>
+        <div class="card-back">
+          <p>Manicures, pedicures, and nail art designed to keep your hands and feet looking their best.</p>
+        </div>
       </div>
     </div>
   </section>
   
-  <section id="about">
-    <h2>About Me</h2>
-    <p>An enthusiastic law and technology professional, I excel as a Reconciliation Officer at GTN Tech while pursuing a Software Engineering degree.With a digital banking diploma and a passion for automation and financial innovation, I streamline processes and deliver impactful solutions. </p>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="about-section">
+    <h2>About Us</h2>
+    <p>
+      Where beauty meets passion.
+      Our dedicated team of professionals brings years of industry experience to help you feel your best.
+    </p>
   </section>
 
-  <section id="education">
-    <h2>Education Qualifications</h2>
-    <ul>
-      <li>Bachelor of Science (BSc(Hons)) in Software Engineering and Data Analytics – Solent University (Jan 2024 – Jan 2026)</li>
-      <li>Bachelor of Law (LLB(Hons)) – Open University of Sri Lanka (Apr 2023 – Jan 2027)</li>
-      <li>Advanced Diploma in Digital Banking and Finance – National Institute of Business Management, Sri Lanka (Sep 2022 – Jan 2024)</li>
-      <li>Secondary Education – Royal College Colombo (G.C.E (A/L) 2019: Economics - A, Business Studies - A, Accounting - A, General English - A)</li>
-       
-    </ul>
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <p>Book an appointment or ask us anything:</p>
+    <form action="/submit_form" method="POST" class="contact-form">
+      <label for="full_name">Full Name:</label>
+      <input type="text" id="full_name" name="full_name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="client_email" required />
+
+      <label for="contact_number">Contact No:</label>
+      <input type="tel" id="contact_number" name="contact_number" required />
+
+      <!-- SERVICE SELECT DROPDOWN -->
+      <label for="service-select">Select Service:</label>
+      <select id="service-select" name="service_option">
+        <option value="hair">Hair Styling</option>
+        <option value="makeup">Makeup</option>
+        <option value="spa">Spa Treatment</option>
+        <option value="nails">Nail Services</option>
+      </select>
+
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
   </section>
 
-  <section id ="project">
-    <h2>Projects</h2>
-      <ul>
-        <li>Financial Reconciliation Portal</li>
-          <p>A secure web app automating financial reconciliation reports with real-time data visualization.</p>
-        <li>Digital Banking Dashboard</li>
-          <p>An interactive dashboard integrating multiple banking APIs for performance insights.</p>
-        <li>Responsive Portfolio Website</li>
-          <p>A mobile-first, dynamic website showcasing personal projects and skills.</p>
-        <li>Business Analytics Visualization Tool</li>
-          <p>A web solution converting raw data into interactive charts and reports.</p>
-        <li>AI-Powered Chatbot</li>
-          <p>A customer service chatbot leveraging AI to streamline digital banking queries.</p>
-    </ul>
-  </section>
-
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul>
-    <li>Proficient in HTML5 & CSS3 for crafting responsive layouts</li>
-    <li>Skilled in JavaScript for interactive web functionality</li>
-    <li>Familiar with front-end frameworks (React/Angular)</li>
-    <li>Basic knowledge of back-end development (Node.js/Express)</li>
-    <li>Experience with RESTful API integration and version control (Git)</li>
-    </ul>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p><strong>Address:</strong> 22/4, Saba Lane, Thimbirigasyaya, Colombo 5</p>
-    <p><strong>Phone:</strong> 0720919719</p>
-    <p><strong>Email:</strong> <a href="mailto:anupawpahasara@gmail.com">anupawpahasara@gmail.com</a></p>
-    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/anupa-wimalasiri-71b105251" target="_blank">Anupa Wimalasiri</a></p>
-  </section>
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Your Salon. All rights reserved.</p>
+    <div class="social-links">
+      <!-- Replace # with your actual social media links -->
+      <a href="#" aria-label="Facebook">Facebook</a>
+      <a href="#" aria-label="Instagram">Instagram</a>
+      <a href="#" aria-label="Twitter">Twitter</a>
+    </div>
+  </footer>
 
 </body>
 </html>

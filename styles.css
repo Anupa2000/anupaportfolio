@@ -1,191 +1,310 @@
-/* Basic Reset */
+/* GLOBAL STYLES */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --primary-color: #ff6984;        /* Brand color */
+    --text-color: #333;              /* Default text color */
+    --background-color: #fff;        /* Main background */
+    --secondary-background: #f2f2f2; /* Light gray for navbar/footer */
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  /* LINKS */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* NAVBAR */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    color: var(--text-color);
+  }
 
-/* Base Body Styles */
-body {
-  font-family: Arial, sans-serif; /* or your preferred font */
-  background-color: #121212;     /* Dark background for a modern look */
-  color: #ffffff;                /* White text for contrast */
-  line-height: 1.6;
-}
-
-/* Header & Navbar */
-header {
-  position: fixed;      /* Stays at the top on scroll */
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #1d1d1d;
-  z-index: 999;         /* Ensures the header stays above other elements */
-}
-
-.navbar {
-  /* Currently empty – add a logo or brand name if desired */
-}
-
-nav ul {
-  display: flex;
-  justify-content: center; /* Center the nav items */
-  list-style: none;
-  padding: 1rem;
-  margin: 0;
-}
-
-nav ul li {
-  margin: 0 1.5rem;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: #f39c12;
-}
-
-/* Hero Section */
-/* Hero container set up as a flex container */
-.hero {
-  display: flex;
-  align-items: center;         /* Vertically center the content */
-  justify-content: space-between;  /* Space out text and image */
-  min-height: 100vh;           /* Full viewport height */
-  padding: 2rem;
-}
-
-/* Left side text */
-.hero-text {
-  flex: 1;                   /* Take up equal space */
-  text-align: center;          /* Align text to the left */
-  padding-right: 2rem;       /* Space between text and image */
-}
-
-/* Right side image */
-.hero-image {
-  flex: 1;                   /* Take up equal space */
-  text-align: right;         /* Align the image to the right */
-}
-
-/* Style for the image */
-.hero-image img {
-  width: 800px;              /* Adjust as needed */
-  max-width: 100%;           /* Responsive image */
-  border-radius: 8px;        /* Optional rounded corners */
-  opacity: 1;              /* Slight transparency */
-  background: transparent;
-}
-
-/* Button styling */
-.btn {
-  display: inline-block;
-  background-color: #f39c12;
-  color: #ffffff;
-  text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  font-weight: 600;
-  transition: background 0.3s ease;
-  white-space: nowrap;       /* Ensures the text stays on one line */
-}
-
-.btn:hover {
-  background-color: #e67e22;
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;  /* Stack text and image vertically */
+  .logo img {
+    height: 50px;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .nav-links li {
+   list-style: none;
+  }
+  
+  .nav-links li a:hover {
+    color: #fff;       
+  }
+  
+  /* HERO SECTION - FULL-SCREEN BACKGROUND */
+  .hero-section {
+    background: url('https://cdn.pixabay.com/photo/2021/02/06/22/13/woman-5989552_1280.jpg') center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
   }
   
-  .hero-text {
-    padding-right: 0;
+  .hero-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 2rem;
+    border-radius: 5px;
+    max-width: 800px; /* Added to limit text width */
+    margin: 0 auto;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    background: linear-gradient(to right, #f78ca0 0%, #f9748f 50%, #fe9a8b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    position: relative;
+    display: inline-block;
+
+  }
+
+  .hero-section h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 100%;
+    height: 4px;
+    background: #f9748f;
+    border-radius: 2px;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
     margin-bottom: 1.5rem;
   }
   
-  .hero-image {
+  /* BUTTON STYLES */
+  .btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s ease; /* Smooth transition for hover */
+  }
+  
+  .btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+  }
+  
+  .btn-primary:hover {
+    filter: brightness(0.9); /* Slightly darker on hover */
+  }
+  
+  /* CONTAINER FOR CENTERING CONTENT */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  /* SERVICES SECTION */
+  .services-section {
+    padding: 2rem;
+    background: var(--primary-color);
     text-align: center;
   }
-}
-
-
-/* Sections */
-section {
-  padding: 5rem 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-section h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  position: relative;
-  color: #ffffff;
-}
-
-/* A small accent line under each section heading */
-section h2::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: #f39c12;
-  margin: 0.5rem auto 0;
-}
-
-section p, section li {
-  color: #cccccc;  /* Slightly lighter than white for readability */
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 1rem;
-}
-
-/* Lists */
-section ul {
-  list-style: none;
-  padding: 0;
-  margin: 2rem 0;
-}
-
-section ul li {
-  margin-bottom: 1rem;
-  background: #1d1d1d;
-  padding: 1rem;
-  border-left: 5px solid #f39c12;
-  border-radius: 4px;
-}
-
-/* Footer (If you add one) */
-footer {
-  text-align: center;
-  padding: 2rem;
-  background: #1d1d1d;
-  color: #ffffff;
-}
-
-/* Responsive Adjustments */
-@media (min-width: 769px) {
-  .hero {
-    flex-direction: row;       /* Place image and text side by side on wider screens */
+  
+  #services {
+    text-align: center; /* Centers the h2 and inline-block elements */
+    margin: 40px 0;     /* Optional spacing above/below */
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  
+/* Container that sets up perspective */
+.card {
+    width: 300px;            /* Adjust to desired size */
+    height: 200px;           /* Adjust to desired size */
+    margin: 20px;
+    perspective: 1000px;     /* Controls the 3D distance "depth" */
+    cursor: pointer;         /* Makes it clear the card is clickable */
+  }
+  
+  /* Inner wrapper that actually flips in 3D */
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;     /* Animation duration */
+    transform-style: preserve-3d;   /* Allows child elements to be in 3D space */
+    position: relative;
+  }
+  
+  /* Flip the card when .flipped is added */
+  .card.flipped .card-inner {
+    transform: rotateY(180deg);     /* Rotate on the Y-axis by 180 degrees */
+  }
+  
+  /* Front & Back faces of the card */
+  .card-front, .card-back {
+    position: absolute; 
+    width: 100%; 
+    height: 100%;
+    backface-visibility: hidden;    /* Hide "bleed-through" of back side text */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background-color: #fff;         /* White card background (customize) */
+  }
+  
+  /* The front face can be styled differently from the back */
+  .card-front {
+    /* front side styles, e.g., background color, image, etc. */
+    background-color: #f8e1ed;      /* example salon color */
+    color: #333;
+  }
+  
+  /* The back face is rotated 180deg so it's hidden initially */
+  .card-back {
+    transform: rotateY(180deg);
+    background-color: #CDE7E2;
+    color: #333;
+    padding: 20px;                  /* Often, you want more text space here */
+  }
+  
+  /* Example h3 or p styling (optional) */
+  .card-front h3 {
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+  
+  .card-back p {
+    font-size: 1rem;
+    line-height: 1.4;
+    font-weight: bold;
+  }
+  
+  
+  /* ABOUT SECTION */
+  .about-section {
+    background: #fafafa; /* Slightly different from --secondary-background */
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .about-section h2 {
+    margin-bottom: 1rem;
+  }
+  
+  /* CONTACT SECTION */
+  .contact-section {
+    padding: 2rem;
+    background: var(--background-color);
+    text-align: center;
+  }
+  
+  .contact-section h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
     text-align: left;
   }
-  .hero-image {
-    margin-right: 2rem;        /* Space between image and text */
-    margin-bottom: 0;          /* Remove bottom margin in row layout */
+  
+  .contact-form label {
+    font-weight: 500;
   }
-  .hero h2 {
-    font-size: 4rem;
+  
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
   }
-  .hero p {
-    font-size: 1.3rem;
+  
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(199, 21, 133, 0.5); /* Focus highlight */
   }
-}
+  
+  /* FOOTER */
+  footer {
+    background: var(--secondary-background);
+    padding: 1rem;
+    text-align: center;
+    background-color: var(--primary-color);
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+  
+  .social-links a {
+    color: var(--text-color);
+    
+  }
+  
+  .social-links a:hover {
+    font-weight: bold;
+  }
+  
+  /* MEDIA QUERIES */
+  @media (max-width: 768px) {
+    .hero-section {
+      height: auto; /* More flexible height */
+      padding: 2rem 0; /* Add padding instead */
+    }
+  
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+  
+    .hero-content p {
+      font-size: 1rem;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+  
